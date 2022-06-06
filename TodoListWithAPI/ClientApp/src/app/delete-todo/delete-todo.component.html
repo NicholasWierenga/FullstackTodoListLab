@@ -1,0 +1,15 @@
+<input type="text" placeholder="Enter id to delete todo" [(ngModel)]="id">
+<input type="submit" (click)="DeleteTodo(id)" (click)="GetAllTodos()">
+
+
+<div>
+    <p *ngFor="let todo of searchedArray;">
+
+      <s class="strikeThrough" *ngIf="todo.completed === true; else notDone">
+        {{todo.id}} | Task: {{todo.task}}
+      </s>
+      <ng-template #notDone>
+        {{todo.id}} | Task: {{todo.task}}
+      </ng-template>
+    </p>
+</div>
